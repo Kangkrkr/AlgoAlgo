@@ -1,3 +1,4 @@
+package kangkrkr;
 class MySolution {
     public String solution(String phone_number) {
         String answer = "";
