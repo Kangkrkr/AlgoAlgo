@@ -1,4 +1,4 @@
-package programers;
+package woosung;
 
 import java.util.ArrayList;
 
@@ -11,46 +11,46 @@ public class Country124 {
 		System.out.println(solution(6));
 	}
 	
-	// 예를 들어서 7이라는 숫자가 있다면 n = 7 이라면
+	// �삁瑜� �뱾�뼱�꽌 7�씠�씪�뒗 �닽�옄媛� �엳�떎硫� n = 7 �씠�씪硫�
 	// n / 3 = 2,  n % 3 = 1
 	//           21
 	
-	// 예를 들어 n = 6 이다.
+	// �삁瑜� �뱾�뼱 n = 6 �씠�떎.
 	// n / 3 = 2, n % 3 = 0
-	// 나머지가 0 일때는 무조건 2번지 값으로
-	// 그리고 0 일때는 앞에있는 몫을 -1
+	// �굹癒몄�媛� 0 �씪�븣�뒗 臾댁“嫄� 2踰덉� 媛믪쑝濡�
+	// 洹몃━怨� 0 �씪�븣�뒗 �븵�뿉�엳�뒗 紐レ쓣 -1
 	// n / 3 = 2 --> 1
 	// n % 3 = 0 --> 2
 	// 14
 	
 	public static String solution(int n) {
 		String answer = "";
-		int share = 0; // 몫
-		String last = ""; // 마지막
+		int share = 0; // 紐�
+		String last = ""; // 留덉�留�
 		
 		ArrayList<String> country124 = new ArrayList<String>();
 		country124.add("1");
 		country124.add("2");
 		country124.add("4");
 		
-		// 몫이 3보다 작을 때까지 나눌 때 나오는 나머지를 담는 Array
+		// 紐レ씠 3蹂대떎 �옉�쓣 �븣源뚯� �굹�닃 �븣 �굹�삤�뒗 �굹癒몄�瑜� �떞�뒗 Array
 		ArrayList<Integer> buff = new ArrayList<Integer>();
 		
-		// 몫이 0일 경우 즉, (1, 2) 일 경우
+		// 紐レ씠 0�씪 寃쎌슦 利�, (1, 2) �씪 寃쎌슦
 		if(n / 3 == 0){
 			answer = country124.get(n % 3 - 1);
 			return answer;
-		} else { // 몫이 1 이상일 경우, 3 이상의 수
-			// 나머지가 0 일경우
+		} else { // 紐レ씠 1 �씠�긽�씪 寃쎌슦, 3 �씠�긽�쓽 �닔
+			// �굹癒몄�媛� 0 �씪寃쎌슦
 			if(n % 3 == 0) {
 				last = country124.get(2);
 				share = n / 3 - 1;
-			} else { // 나머지가 0이 아닐 경우
+			} else { // �굹癒몄�媛� 0�씠 �븘�땺 寃쎌슦
 				last = country124.get(n % 3 - 1);
 				share = n / 3;
 			}
 			
-			// 몫이 3보다 클 경우 3보다 작을 때까지 나누기
+			// 紐レ씠 3蹂대떎 �겢 寃쎌슦 3蹂대떎 �옉�쓣 �븣源뚯� �굹�늻湲�
 			while(share > 3) {
 				if(share % 3 == 0) {
 					share = share / 3 - 1;
@@ -62,17 +62,17 @@ public class Country124 {
 			}
 		}
 		
-		// 몫이 0이 아닐경우에만
+		// 紐レ씠 0�씠 �븘�땺寃쎌슦�뿉留�
 		if(share != 0) {
 			answer = country124.get(share - 1);
 		}
 		
-		// 몫이 3 이상일 때 담았던 나머지들
+		// 紐レ씠 3 �씠�긽�씪 �븣 �떞�븯�뜕 �굹癒몄��뱾
 		for(int i = buff.size() - 1; i >= 0; i--) {
 			answer += country124.get(buff.get(i) - 1);
 		}
 		
-		// 최초 나눴을 때 나머지
+		// 理쒖큹 �굹�댋�쓣 �븣 �굹癒몄�
 		answer += last;
 		
 		return answer;

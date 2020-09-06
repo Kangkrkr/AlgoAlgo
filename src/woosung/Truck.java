@@ -1,4 +1,4 @@
-package programers;
+package woosung;
 
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ public class Truck {
 		
 		
 		// -------------------------------------------------
-		// 				1,		4								길이가 2이기 때문에 형은 차선이 1개 이게 맞음
+		// 				1,		4								湲몄씠媛� 2�씠湲� �븣臾몄뿉 �삎�� 李⑥꽑�씠 1媛� �씠寃� 留욎쓬
 		// -------------------------------------------------
 		
 		System.out.println(solution(bridge_length1, weight1, truck_weights1));
@@ -35,38 +35,38 @@ public class Truck {
 	public static int solution(int bridge_length, int weight, int[] truck_weights) {
 		int answer = 0;
 		
-		ArrayList<Integer> time = new ArrayList<Integer>(); //트럭이 다리에 올라오고 나서 지난 시간 관리 Array
-		ArrayList<Integer> passTruck = new ArrayList<Integer>(); //자나고 있는 트럭 관리 Array
+		ArrayList<Integer> time = new ArrayList<Integer>(); //�듃�윮�씠 �떎由ъ뿉 �삱�씪�삤怨� �굹�꽌 吏��궃 �떆媛� 愿�由� Array
+		ArrayList<Integer> passTruck = new ArrayList<Integer>(); //�옄�굹怨� �엳�뒗 �듃�윮 愿�由� Array
 		
-		// 트럭 수 만큼 반복
+		// �듃�윮 �닔 留뚰겮 諛섎났
 		for(int i = 0; i < truck_weights.length; i++) {
-			answer += 1; // 1초 부터 시작
+			answer += 1; // 1珥� 遺��꽣 �떆�옉
 			
-			// 시간관련 Array가 비어 있지 않으면 1초씩 증가
+			// �떆媛꾧��젴 Array媛� 鍮꾩뼱 �엳吏� �븡�쑝硫� 1珥덉뵫 利앷�
 			if(time.size() != 0) {
 				for(int j = 0; j < time.size(); j++) {
 					time.set(j, time.get(j) + 1);
 				}
 			}
 			
-			// 트럭을 출발선상에 올림
+			// �듃�윮�쓣 異쒕컻�꽑�긽�뿉 �삱由�
 			time.add(0);
 			passTruck.add(truck_weights[i]);
 			
-			// 트럭이 끝까지 갔다면 시간 Array와 통과중인 트럭 Array 에서 제거
+			// �듃�윮�씠 �걹源뚯� 媛붾떎硫� �떆媛� Array�� �넻怨쇱쨷�씤 �듃�윮 Array �뿉�꽌 �젣嫄�
 			if(time.get(0) == bridge_length) {
 				time.remove(0);
 				passTruck.remove(0);
 			}
 			
-			// sum 메소드를 이용해 다리 통과중인 트럭의 총무게를 검사해 넘으면 마지막 추가된 트럭 제거
+			// sum 硫붿냼�뱶瑜� �씠�슜�빐 �떎由� �넻怨쇱쨷�씤 �듃�윮�쓽 珥앸Т寃뚮�� 寃��궗�빐 �꽆�쑝硫� 留덉�留� 異붽��맂 �듃�윮 �젣嫄�
 			if(sum(passTruck) > weight) {
 				passTruck.remove(passTruck.size() - 1);
 				time.remove(time.size() - 1);
 				i--;
 			}
 			
-			// 마지막 트럭은 해당 다리 길이만큼 초를 추가
+			// 留덉�留� �듃�윮�� �빐�떦 �떎由� 湲몄씠留뚰겮 珥덈�� 異붽�
 			if(i == truck_weights.length - 1) {
 				answer += bridge_length;
 				break;
