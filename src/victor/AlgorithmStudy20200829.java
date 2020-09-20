@@ -4,7 +4,7 @@ public class AlgorithmStudy20200829 {
 
 	public static void main(String[] args) {
 
-		//124 ³ª¶óÀÇ ¼ıÀÚ
+		//124 ë‚˜ë¼ì˜ ìˆ«ì
 		int dest = 39;
 		for(int i=1; i<=dest; i++) {
 			String answer12899Check = solution(i,true);
@@ -31,7 +31,7 @@ public class AlgorithmStudy20200829 {
                     break;
                 case 0 : //3,6,9,12...
                 	if(b) {
-                		n -= 1; //ÀÚ¸®¼öÁ¶ÀıÀ» À§ÇØ 1°¨¼Ò
+                		n -= 1; //ìë¦¬ìˆ˜ì¡°ì ˆì„ ìœ„í•´ 1ê°ì†Œ
                 	}
                     answer = String.valueOf(4).concat(answer);
                     break;

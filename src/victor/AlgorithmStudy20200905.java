@@ -4,7 +4,7 @@ public class AlgorithmStudy20200905 {
 
 	public static void main(String[] args) {
 
-		//ÁÖ½Ä°¡°İ
+		//ì£¼ì‹ê°€ê²©
 		int[] prices = {1, 2, 3, 2, 3}; //[4, 3, 1, 1, 0]
 		int[] answer42584 = solution(prices);
 		System.out.println(answer42584);

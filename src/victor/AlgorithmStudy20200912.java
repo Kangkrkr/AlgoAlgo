@@ -12,20 +12,20 @@ public class AlgorithmStudy20200912 {
 		int problem = 42842;
 		
 		switch (problem) {
-		//¹®ÀÚ¿­ ¾ĞÃà
+		//ë¬¸ìì—´ ì••ì¶•
 		case 60057:
 			String s = "aabbaccc";
 			int answer60057 = solution(s);
 			System.out.println(answer60057);
 			break;
-		//Ä«Æê
+		//ì¹´í«
 		case 42842:
 			int brown = 24;
 			int yellow = 24;
 			int[] answer42842 = solution(brown, yellow);
 			System.out.println(answer42842);
 			break;
-		//¼Ò¼ö Ã£±â
+		//ì†Œìˆ˜ ì°¾ê¸°
 		case 42839:
 			String numbers = "17";
 			int answer42839 = solution2(numbers);
@@ -47,17 +47,17 @@ public class AlgorithmStudy20200912 {
         int totalTile = brown + yellow;
         //12
         //(1,2,3,4,6,12)
-        //°¡·ÎÀÇ±æÀÌ>=¼¼·Î±æÀÌ
+        //ê°€ë¡œì˜ê¸¸ì´>=ì„¸ë¡œê¸¸ì´
         
-        //i°¡ 3ÀÎ ÀÌÀ¯ ? ³ë¶õ»ö Å¸ÀÏÀÌ ÃÖ¼Ò 1°³ ±âÁØÀÏ¶§ ½ÇÁ¦ Å¸ÀÏÀÇ °¡·Î±æÀÌ´Â 3ºÎÅÍ ½ÃÀÛÇÏ±â ¶§¹®
+        //iê°€ 3ì¸ ì´ìœ  ? ë…¸ë€ìƒ‰ íƒ€ì¼ì´ ìµœì†Œ 1ê°œ ê¸°ì¤€ì¼ë•Œ ì‹¤ì œ íƒ€ì¼ì˜ ê°€ë¡œê¸¸ì´ëŠ” 3ë¶€í„° ì‹œì‘í•˜ê¸° ë•Œë¬¸
         for(int i=3; i<=totalTile; i++){
-            // ¾à¼ö ¸ğµÎ ±¸ÇÏ±â
+            // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
             if(totalTile % i == 0){
-                int row = totalTile / i;    // °¡·Î
-                int col = totalTile / row;  // ¼¼·Î
+                int row = totalTile / i;    // ê°€ë¡œ
+                int col = totalTile / row;  // ì„¸ë¡œ
 
-                int yRow = row - 2;    // yellow °İÀÚÀÇ °¡·Î
-                int yCol = col - 2;    // yellow °İÀÚÀÇ ¼¼·Î
+                int yRow = row - 2;    // yellow ê²©ìì˜ ê°€ë¡œ
+                int yCol = col - 2;    // yellow ê²©ìì˜ ì„¸ë¡œ
                 if(yRow * yCol == yellow && row >= col){
                     answer[0] = row;
                     answer[1] = col;
@@ -70,17 +70,16 @@ public class AlgorithmStudy20200912 {
     }
 	
 	private static int solution2(String numbers) {
-		// ¸®½ºÆ®¿¡ ´ã¾ÆÁÜ
+		// ë¦¬ìŠ¤íŠ¸ì— ë‹´ì•„ì¤Œ
 		char[] list = numbers.toCharArray();
         int[] makeNumFrom = new int[list.length];
         for (int i = 0; i < list.length; i++) {
-        	//¼ıÀÚ¸¦ ¸¸µé±â À§ÇÑ ¿ä¼Òµé ³Ö±â
+        	//ìˆ«ìë¥¼ ë§Œë“¤ê¸° ìœ„í•œ ìš”ì†Œë“¤ ë„£ê¸°
             makeNumFrom[i] = Integer.parseInt(String.valueOf(list[i]));
         }
 		
-		//¸¸µé¾îÁö´Â ¼öµé  Áß Áßº¹Á¦°Å¿ë  set
+        //ë§Œë“¤ì–´ì§€ëŠ” ìˆ˜ë“¤  ì¤‘ ì¤‘ë³µì œê±°ìš©  set
         Set<Integer> makeNumTo = new HashSet<>();
-		
 		
         return makeNumTo.size();
 	}
@@ -91,11 +90,11 @@ public class AlgorithmStudy20200912 {
 		boolean isPrime = false;
 		
 		for (int i = 2; i < num; i++) {
-            // 1°ú num ÀÚ½Å ¿Ü¿¡ ³ª´©¾îÁö´Â ¼ö°¡ ÀÖ´ÂÁö °Ë»çÇÒ Á¶°Ç¹®
+			// 1ê³¼ num ìì‹  ì™¸ì— ë‚˜ëˆ„ì–´ì§€ëŠ” ìˆ˜ê°€ ìˆëŠ”ì§€ ê²€ì‚¬í•  ì¡°ê±´ë¬¸
             if (num % i == 0) {
-                // ³ª´©¾îÁö´Â ¼ö°¡ ÀÖÀ» °æ¿ì isPrimeÀÇ °ªÀ» true·Î ¹Ù²Û´Ù.
+            	// ë‚˜ëˆ„ì–´ì§€ëŠ” ìˆ˜ê°€ ìˆì„ ê²½ìš° isPrimeì˜ ê°’ì„ trueë¡œ ë°”ê¾¼ë‹¤.
                 isPrime = true;
-                // ÇÑ ¹øÀÌ¶óµµ ÀÌ Á¶°Ç¹®ÀÌ ½ÇÇàµÉ °æ¿ì numÀº ¼Ò¼ö°¡ ¾Æ´Ï¹Ç·Î ¹İº¹¹®À» ºüÁ®³ª¿Â´Ù.
+                // í•œ ë²ˆì´ë¼ë„ ì´ ì¡°ê±´ë¬¸ì´ ì‹¤í–‰ë  ê²½ìš° numì€ ì†Œìˆ˜ê°€ ì•„ë‹ˆë¯€ë¡œ ë°˜ë³µë¬¸ì„ ë¹ ì ¸ë‚˜ì˜¨ë‹¤.
                 break;
             }
         }

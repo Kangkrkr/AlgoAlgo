@@ -18,7 +18,7 @@ public class AlgorithmStudy20200808 {
 		
 		switch (test) {
 			case 42748:
-				//K¹øÂ° ¼ö
+				//Kë²ˆì§¸ ìˆ˜
 				int[] array = {1, 5, 2, 6, 3, 7, 4};
 				int[][] commands = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
 				int[] answer42748 = solution(array, commands);
@@ -26,7 +26,7 @@ public class AlgorithmStudy20200808 {
 				break;
 				
 			case 12901:
-				//2016³â
+				//2016ë…„
 				int a = 5;
 				int b = 24;
 				String answer12901 = solution(a,b);
@@ -34,7 +34,7 @@ public class AlgorithmStudy20200808 {
 				break;
 				
 			case 42840:
-				// ¸ğÀÇ°í»ç
+				// ëª¨ì˜ê³ ì‚¬
 				//int[] answers = {1,2,3,4,5};
 				//int[] answers = {1,3,2,4,2};
 				int[] answers = {1, 4, 3, 1, 2, 5};
@@ -52,9 +52,9 @@ public class AlgorithmStudy20200808 {
         int[] answer = new int[commands.length];
                 
         for (int i = 0; i < commands.length; i++) {
-            // dest = commandsÀÇ i¹øÂ° ¹è¿­
+        	// dest = commandsì˜ ië²ˆì§¸ ë°°ì—´
             // dest[0] = from, dest[1] = to, dest[2] = findIndex
-            // makeAnswer = arrayº¹»ç ÈÄ command¿¡ µû¶ó ¹üÀ§ º¹»ç ÈÄ Á¤·Ä
+            // makeAnswer = arrayë³µì‚¬ í›„ commandì— ë”°ë¼ ë²”ìœ„ ë³µì‚¬ í›„ ì •ë ¬
             int[] dest = commands[i];
             int[] makeAnswer = new int[dest[1]-dest[0]+1];
             makeAnswer = Arrays.copyOfRange(array, dest[0]-1, dest[1]);
@@ -95,30 +95,30 @@ public class AlgorithmStudy20200808 {
 	public static int[] solution(int[] answers) {
         int[] answer = {};
         
-//        1¹ø ¼öÆ÷ÀÚ°¡ Âï´Â ¹æ½Ä: 1, 2, 3, 4, 5, ... (n%5)+1 
-//        2¹ø ¼öÆ÷ÀÚ°¡ Âï´Â ¹æ½Ä: 2, 1, 2, 3, 2, 4, 2, 5, ... Â¦¼öÀÎµ¦½º´Â 2 È¦¼öÀÎµ¦½º´Â 2,10,18->1 / 4,12,20->3 / 6,14,22->4 / 8,16,24->5  (inx%8) 1,3,4,5
-//        3¹ø ¼öÆ÷ÀÚ°¡ Âï´Â ¹æ½Ä: 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, ...   n%10 = 1,2 -> 3 /  n%10 = 3,4 -> 1 / n%10 = 5,6 -> 2 / n%10 = 7,8 -> 4 / n%10 9,0 -> 5
-//        
-//        °¡Àå ³ôÀº Á¡¼ö¸¦ ¹ŞÀº »ç¶÷ÀÌ ¿©·µÀÏ °æ¿ì, returnÇÏ´Â °ªÀ» ¿À¸§Â÷¼ø Á¤·ÄÇØÁÖ¼¼¿ä.
-//        
-//        answers	return
-//        [1,2,3,4,5]	[1]
-//        [1,3,2,4,2]	[1,2,3]
+		//1ë²ˆ ìˆ˜í¬ìê°€ ì°ëŠ” ë°©ì‹: 1, 2, 3, 4, 5, ... (n%5)+1 
+		//2ë²ˆ ìˆ˜í¬ìê°€ ì°ëŠ” ë°©ì‹: 2, 1, 2, 3, 2, 4, 2, 5, ... ì§ìˆ˜ì¸ë±ìŠ¤ëŠ” 2 í™€ìˆ˜ì¸ë±ìŠ¤ëŠ” 2,10,18->1 / 4,12,20->3 / 6,14,22->4 / 8,16,24->5  (inx%8) 1,3,4,5
+		//3ë²ˆ ìˆ˜í¬ìê°€ ì°ëŠ” ë°©ì‹: 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, ...   n%10 = 1,2 -> 3 /  n%10 = 3,4 -> 1 / n%10 = 5,6 -> 2 / n%10 = 7,8 -> 4 / n%10 9,0 -> 5
+		//
+		//ê°€ì¥ ë†’ì€ ì ìˆ˜ë¥¼ ë°›ì€ ì‚¬ëŒì´ ì—¬ëŸ¿ì¼ ê²½ìš°, returní•˜ëŠ” ê°’ì„ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬í•´ì£¼ì„¸ìš”.
+		//
+		//answers	return
+		//[1,2,3,4,5]	[1]
+		//[1,3,2,4,2]	[1,2,3]
         
 		int aCnt = 0, bCnt = 0, cCnt = 0;
 		int[] no2Case = {1,3,4,5};
 		int[] no3Case = {3,1,2,4,5};
 		
         for (int n = 0; n < answers.length; n++) {
-        	//1¹ø»ç¶÷
+        	//1ï¿½ï¿½ï¿½ï¿½ï¿½
 			if((n%5) + 1 == answers[n]) {
 				aCnt++;
 			}
-			//2¹ø»ç¶÷
+			//2ï¿½ï¿½ï¿½ï¿½ï¿½
 			if((n % 2 == 0 ? 2 : no2Case[(n / 2) % no2Case.length]) == answers[n]) {
 				bCnt++;
 			}
-			//3¹ø»ç¶÷
+			//3ï¿½ï¿½ï¿½ï¿½ï¿½
 			if((no3Case[((n / 2) % no3Case.length)]) == answers[n]) {
 				cCnt++;
 			}

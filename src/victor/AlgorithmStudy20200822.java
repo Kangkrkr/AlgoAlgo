@@ -11,7 +11,7 @@ public class AlgorithmStudy20200822 {
 		
 		switch (test) {
 			case 64061:
-				//Å©·¹ÀÎ ÀÎÇü»Ì±â °ÔÀÓ
+				//í¬ë ˆì¸ ì¸í˜•ë½‘ê¸° ê²Œì„
 				int[][] board = {
 						{0,0,0,0,0},
 						{0,0,1,0,3},
@@ -25,7 +25,7 @@ public class AlgorithmStudy20200822 {
 				break;
 				
 			case 42583:
-				//´Ù¸®¸¦ Áö³ª´Â Æ®·°
+				//ë‹¤ë¦¬ë¥¼ ì§€ë‚˜ëŠ” íŠ¸ëŸ­
 				int bridge_length = 2;
 				int weight = 10;
 				int[] truck_weights = {7,4,5,6};
@@ -87,25 +87,25 @@ public class AlgorithmStudy20200822 {
         
         LinkedList<Integer> bridgeQueue = new LinkedList<Integer>();
         
-        //peek ¸Ç¾Õ °¡Á®¿À±â
-        //poll ¸Ç¾Õ Áö¿ì±â
-        //offer ¸ÇµÚ ³Ö±â
+        //peek ë§¨ì• ê°€ì ¸ì˜¤ê¸°
+        //poll ë§¨ì• ì§€ìš°ê¸°
+        //offer ë§¨ë’¤ ë„£ê¸°s
         int totalWeight = 0;
         
         for (int trucks : truck_weights) {
         	while ( true ) {
-				if( bridgeQueue.isEmpty() ) { //ºñ¾úÀ»¶§ µÚ¿¡ ³Ö°í ÀüÃ¼¹«°Ô,¼Ò¿ä½Ã°£ Áõ°¡
+				if( bridgeQueue.isEmpty() ) { //ë¹„ì—ˆì„ë•Œ ë’¤ì— ë„£ê³  ì „ì²´ë¬´ê²Œ,ì†Œìš”ì‹œê°„ ì¦ê°€
 	    			bridgeQueue.offer(trucks);
 	    			totalWeight += trucks;
 	    			answer++;
 	    			break;
-	    		}else if(bridgeQueue.size() == bridge_length) {//¸Ç¾ÕÀÇ Æ®·°ÀÌ ´Ù °Ç³Í»óÅÂ, ÀüÃ¼¹«°Ô °¨¼Ò
+	    		}else if(bridgeQueue.size() == bridge_length) { //ë§¨ì•ì˜ íŠ¸ëŸ­ì´ ë‹¤ ê±´ë„Œìƒíƒœ, ì „ì²´ë¬´ê²Œ ê°ì†Œ
 	    			totalWeight -= bridgeQueue.poll();
 	    		}else {
-	    			if(totalWeight + trucks > weight) { //´Ù¸®¹«°Ô¸¦ ÃÊ°úÇÏ¸é 0À¸·Î Ã¤¿ò
+	    			if(totalWeight + trucks > weight) { //ë‹¤ë¦¬ë¬´ê²Œë¥¼ ì´ˆê³¼í•˜ë©´ 0ìœ¼ë¡œ ì±„ì›€
 	    				bridgeQueue.offer(0);
 	    				answer++;
-	    			}else { //ÃÊ°úÇÏÁö¾ÊÀ¸¸é µÚ¿¡´Ù Æ®·° ¿Ã¸®°í ¹«°Ô,½Ã°£ Áõ°¡
+	    			}else { //ì´ˆê³¼í•˜ì§€ì•Šìœ¼ë©´ ë’¤ì—ë‹¤ íŠ¸ëŸ­ ì˜¬ë¦¬ê³  ë¬´ê²Œ,ì‹œê°„ ì¦ê°€
 	    				bridgeQueue.offer(trucks);
 	    				totalWeight += trucks;
 	    				answer++;
@@ -115,6 +115,6 @@ public class AlgorithmStudy20200822 {
         	}
 		}
       
-        return answer + bridge_length; //¸¶Áö¸·Æ®·°Àº ¿Ã¶ó°£»óÅÂ·Î ¹İº¹¹®À» Å»ÃâÇÏ¹Ç·Î ´Ù¸® ±æÀÌ¸¦ ÃÖÁ¾½Ã°£¿¡ ÇÕÇÑ´Ù
+        return answer + bridge_length; //ë§ˆì§€ë§‰íŠ¸ëŸ­ì€ ì˜¬ë¼ê°„ìƒíƒœë¡œ ë°˜ë³µë¬¸ì„ íƒˆì¶œí•˜ë¯€ë¡œ ë‹¤ë¦¬ ê¸¸ì´ë¥¼ ìµœì¢…ì‹œê°„ì— í•©í•œë‹¤
     }
 }

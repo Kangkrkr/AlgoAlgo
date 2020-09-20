@@ -10,7 +10,7 @@ public class AlgorithmStudy20200815 {
 		
 		switch (test) {
 			case 12948:
-				//ÇÚµåÆù ¹øÈ£ °¡¸®±â
+				//í•¸ë“œí° ë²ˆí˜¸ ê°€ë¦¬ê¸°
 				//String phone_number = "01033334444";
 				String phone_number = "027778888";
 				String answer12948 = solution(phone_number);
@@ -18,7 +18,7 @@ public class AlgorithmStudy20200815 {
 				break;
 				
 			case 12915:
-				//¹®ÀÚ¿­ ³» ¸¶À½´ë·Î Á¤·ÄÇÏ±â
+				//ë¬¸ìì—´ ë‚´ ë§ˆìŒëŒ€ë¡œ ì •ë ¬í•˜ê¸°
 				String[] strings = {"sun", "bed", "car"};
 				int n = 1;
 				String[] answer12915 = solution(strings, n);
